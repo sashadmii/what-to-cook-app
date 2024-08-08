@@ -1,32 +1,10 @@
-import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import { RouterProvider } from 'react-router-dom';
 
 import { Provider } from 'react-redux';
-import store from './store';
-
-import { HomePage } from './pages/HomePage';
-import { NotFoundPage } from './pages/NotFoundPage';
-import { RecipePage } from './pages/RecipePage';
-import { List } from './components/list';
+import store from './store/store';
+import router from './routes';
 
 import './App.css';
-
-const router = createBrowserRouter([
-    {
-        path: '/',
-        element: <HomePage />,
-        errorElement: <NotFoundPage />,
-        children: [
-            {
-                path: '/',
-                element: <List />,
-            },
-        ],
-    },
-    {
-        path: 'recipe/:id',
-        element: <RecipePage />,
-    },
-]);
 
 export function App() {
     return (
