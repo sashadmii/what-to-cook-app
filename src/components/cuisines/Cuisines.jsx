@@ -6,7 +6,7 @@ import { cuisines } from '../../store/list/constants';
 function Cuisines() {
     const dispatch = useDispatch();
 
-    const handleClick = (cuisine) => {
+    const fetchCuisine = (cuisine) => {
         dispatch(
             changeList({
                 cuisine: cuisine,
@@ -25,7 +25,7 @@ function Cuisines() {
                         className="sm:inline-block lg:block sm:w-fit sm:bg-plaster sm:mr-2 mb-2 lg:mr-0 sm:p-2 lg:p-0 sm:rounded-xl">
                         <button
                             className="sm:text-sm lg:text-lg sm:pr-2 sm:pl-2 lg:p-0 text-left hover:text-caramel cursor-pointer"
-                            onClick={() => handleClick(cuisine)}>
+                            onClick={() => fetchCuisine(cuisine)}>
                             {cuisine}
                         </button>
                     </li>

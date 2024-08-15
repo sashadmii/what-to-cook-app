@@ -11,6 +11,7 @@ function List() {
     const search = useSelector((state) => state.list.searchParam);
     const offsetNum = useSelector((state) => state.list.offset);
     const total = useSelector((state) => state.list.total);
+    const dispatch = useDispatch();
 
     const { data, error, isLoading, refetch } = useListQueries();
 
@@ -20,12 +21,11 @@ function List() {
         }
     }, [refetch, curCuisine, search]);
 
-    const dispatch = useDispatch();
     const openRecipe = (recipeId) => {
         dispatch(fetchRecipe({ id: recipeId }));
     };
 
-    const buttonClicked = () => {
+    const fetchMoreRecipes = () => {
         dispatch(
             search
                 ? changeList({
@@ -67,7 +67,7 @@ function List() {
                 ))}
             </div>
             <button
-                onClick={buttonClicked}
+                onClick={fetchMoreRecipes}
                 hidden={data.length === total ? true : false}
                 className="bg-plaster pt-3 pb-3 pl-5 pr-5 rounded-full w-40 mt-5 hover:scale-110 hover:bg-cocoa hover:text-plaster transition ease-in-out duration-500 cursor-pointer">
                 Load More

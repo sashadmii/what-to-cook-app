@@ -30,7 +30,7 @@ function Footer() {
                             {link.icon}
                         </a>
                     ))}
-                    <Mailto email="alexandra.rychka@gmail.com"></Mailto>
+                    <Mailto email="alexandra.rychka@gmail.com" />
                 </div>
             </div>
         </footer>

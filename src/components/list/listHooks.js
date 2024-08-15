@@ -9,10 +9,10 @@ import {
     useSearchRecipesQuery,
 } from '../../api/api.js';
 
+// TODO: rewrite this hook without useEffects
 function useListQueries() {
-    const cuisine = useSelector((state) => state.list?.cuisine);
-    const searchParam = useSelector((state) => state.list?.searchParam);
-    const offset = useSelector((state) => state.list.offset);
+    const { cuisine, searchParam, offset } = useSelector((state) => state.list);
+
     const dispatch = useDispatch();
 
     const [byCuisineList, setByCuisineList] = useState();
@@ -33,12 +33,7 @@ function useListQueries() {
         data: listByCuisine,
         error: errorByCuisine,
         isLoading: isLoadingByCuisine,
-    } = useGetRecipesByCuisineQuery(
-        { cuisine, offset },
-        {
-            skip: !cuisine,
-        }
-    );
+    } = useGetRecipesByCuisineQuery({ cuisine, offset }, { skip: !cuisine });
 
     useEffect(() => {
         if (cuisine) {
@@ -67,12 +62,7 @@ function useListQueries() {
         data: listBySearch,
         error: errorBySearch,
         isLoading: isLoadingBySearch,
-    } = useSearchRecipesQuery(
-        { searchParam, offset },
-        {
-            skip: !searchParam,
-        }
-    );
+    } = useSearchRecipesQuery({ searchParam, offset }, { skip: !searchParam });
 
     useEffect(() => {
         if (searchParam) {
