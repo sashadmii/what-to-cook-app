@@ -7,12 +7,12 @@ function Cuisines() {
     const dispatch = useDispatch();
 
     const fetchCuisine = (cuisine) => {
-        dispatch(
-            changeList({
-                cuisine: cuisine,
-                searchParam: '',
-            })
-        );
+        const updatedCuisines = {
+            cuisine: cuisine,
+            searchParam: '',
+        };
+
+        dispatch(changeList(updatedCuisines));
     };
 
     return (
