@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+// eslint-disable-next-line no-unused-vars
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 
@@ -43,12 +44,15 @@ function List() {
 
   return (
     <section className="flex flex-col items-center">
-      <div className="sm:flex sm:flex-col lg:grid lg:grid-cols-3 sm:gap-4 lg:gap-5 sm:p-0 lg:p-5 sm:mt-5 lg:mt-0 sm:w-full w-fit h-fit overflow-auto">
+      <div
+        className="sm:flex sm:flex-col lg:grid lg:grid-cols-3 sm:gap-4 lg:gap-5 sm:p-0 lg:p-5 
+      sm:mt-5 lg:mt-0 sm:w-full w-fit h-fit overflow-auto">
         {data.map((recipe) => (
           <Link
             key={recipe.id}
             to={`/recipe/${recipe.id}`}
-            className="flex flex-col items-center h-auto bg-plaster sm:p-5 lg:p-7 rounded-3xl lg:hover:scale-105 transition ease-in-out duration-500 cursor-pointer"
+            className="flex flex-col items-center h-auto bg-plaster sm:p-5 lg:p-7 rounded-3xl 
+            lg:hover:scale-105 transition ease-in-out duration-500 cursor-pointer"
             onClick={() => openRecipe(recipe.id)}>
             <img
               className="sm:w-full lg:w-fit h-auto rounded-lg"
@@ -64,7 +68,8 @@ function List() {
       <button
         onClick={fetchMoreRecipes}
         hidden={data.length === total ? true : false}
-        className="bg-plaster pt-3 pb-3 pl-5 pr-5 rounded-full w-40 mt-5 hover:scale-110 hover:bg-cocoa hover:text-plaster transition ease-in-out duration-500 cursor-pointer">
+        className="bg-plaster pt-3 pb-3 pl-5 pr-5 rounded-full w-40 mt-5 hover:scale-110 
+        hover:bg-cocoa hover:text-plaster transition ease-in-out duration-500 cursor-pointer">
         Load More
       </button>
     </section>

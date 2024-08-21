@@ -2,6 +2,7 @@ import globals from 'globals';
 import js from '@eslint/js';
 import eslintReact from 'eslint-plugin-react';
 import eslintImport from 'eslint-plugin-import';
+import eslintSimpleImportSort from 'eslint-plugin-simple-import-sort';
 
 /** @type {import('eslint').Linter.FlatConfig[]} */
 
@@ -10,6 +11,7 @@ export default [
     plugins: {
       react: eslintReact,
       import: eslintImport,
+      'simple-import-sort': eslintSimpleImportSort,
     },
   },
   {
@@ -18,7 +20,8 @@ export default [
   js.configs.recommended,
   {
     languageOptions: {
-      globals: globals.browser,
+      globals: { ...globals.browser, process: true },
+      parserOptions: eslintReact.configs.recommended.parserOptions,
     },
   },
   {
