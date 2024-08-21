@@ -2,11 +2,11 @@
 import { Outlet } from 'react-router-dom';
 
 // eslint-disable-next-line no-unused-vars
-import SearchBar from '../components/searchBar';
-// eslint-disable-next-line no-unused-vars
 import Cuisines from '../components/cuisines';
 // eslint-disable-next-line no-unused-vars
 import Footer from '../components/footer';
+// eslint-disable-next-line no-unused-vars
+import SearchBar from '../components/searchBar';
 
 export function HomePage() {
   return (

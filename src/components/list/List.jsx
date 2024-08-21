@@ -1,11 +1,11 @@
 import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 // eslint-disable-next-line no-unused-vars
 import { Link } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
 
 import { changeList } from '../../store/list/listSlice';
-import useListQueries from './listHooks';
 import { fetchRecipe } from '../../store/recipe/recipeSlice';
+import useListQueries from './listHooks';
 
 function List() {
   const curCuisine = useSelector((state) => state.list?.cuisine);

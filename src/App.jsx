@@ -1,12 +1,12 @@
-// eslint-disable-next-line no-unused-vars
-import { RouterProvider } from 'react-router-dom';
+import './App.css';
 
 // eslint-disable-next-line no-unused-vars
 import { Provider } from 'react-redux';
-import store from './store/store';
-import router from './routes';
+// eslint-disable-next-line no-unused-vars
+import { RouterProvider } from 'react-router-dom';
 
-import './App.css';
+import router from './routes';
+import store from './store/store';
 
 export function App() {
   return (

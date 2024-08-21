@@ -1,12 +1,11 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { changeList } from '../../store/list/listSlice';
-
 // eslint-disable-next-line no-unused-vars
 import { ReactComponent as Logo } from '../../icons/logo.svg';
 // eslint-disable-next-line no-unused-vars
 import { ReactComponent as Glass } from '../../icons/magnGlass.svg';
+import { changeList } from '../../store/list/listSlice';
 
 function SearchBar() {
   const [search, setSearch] = useState('');

@@ -1,8 +1,8 @@
-import globals from 'globals';
 import js from '@eslint/js';
-import eslintReact from 'eslint-plugin-react';
 import eslintImport from 'eslint-plugin-import';
+import eslintReact from 'eslint-plugin-react';
 import eslintSimpleImportSort from 'eslint-plugin-simple-import-sort';
+import globals from 'globals';
 
 /** @type {import('eslint').Linter.FlatConfig[]} */
 
@@ -39,6 +39,7 @@ export default [
       'no-debugger': 'error',
       'no-console': 'warn',
 
+      'simple-import-sort/imports': 'error',
       'import/no-extraneous-dependencies': [
         'error',
         {

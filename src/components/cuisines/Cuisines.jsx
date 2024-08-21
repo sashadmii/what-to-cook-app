@@ -1,7 +1,7 @@
 import { useDispatch } from 'react-redux';
 
-import { changeList } from '../../store/list/listSlice';
 import { cuisines } from '../../store/list/constants';
+import { changeList } from '../../store/list/listSlice';
 
 function Cuisines() {
   const dispatch = useDispatch();
