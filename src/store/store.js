@@ -1,9 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { recipesApi } from '../api/api';
-import { recipeSliceReducer } from './recipe/recipeSlice.js';
-import { listSliceReducer } from './list/listSlice.js';
+import recipeSliceReducer from './recipe/recipeSlice.js';
+import listSliceReducer from './list/listSlice.js';
 
-export const store = configureStore({
+const store = configureStore({
     reducer: {
         recipe: recipeSliceReducer,
         list: listSliceReducer,
