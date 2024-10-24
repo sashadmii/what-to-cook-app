@@ -1,5 +1,5 @@
 function SimilarRecipes() {
-    return <aside>Similar Recipes</aside>;
+  return <aside>Similar Recipes</aside>;
 }
 
 export default SimilarRecipes;

@@ -1,17 +1,17 @@
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
 
+import { useAppSelector, useAppDispatch } from '../../store/hooks';
 import { changeList } from '../../store/list/listSlice';
 import useListQueries from './listHooks';
 import { fetchRecipe } from '../../store/recipe/recipeSlice';
 
 function List() {
-  const curCuisine = useSelector((state) => state.list?.cuisine);
-  const search = useSelector((state) => state.list.searchParam);
-  const offsetNum = useSelector((state) => state.list.offset);
-  const total = useSelector((state) => state.list.total);
-  const dispatch = useDispatch();
+  const curCuisine = useAppSelector((state) => state.list?.cuisine);
+  const search = useAppSelector((state) => state.list.searchParam);
+  const offsetNum = useAppSelector((state) => state.list.offset);
+  const total = useAppSelector((state) => state.list.total);
+  const dispatch = useAppDispatch();
 
   const { data, error, isLoading, refetch } = useListQueries();
 
@@ -21,7 +21,7 @@ function List() {
     }
   }, [refetch, curCuisine, search]);
 
-  const openRecipe = (recipeId) => {
+  const openRecipe = (recipeId: string) => {
     dispatch(fetchRecipe({ id: recipeId }));
   };
 
@@ -39,12 +39,12 @@ function List() {
 
   if (error) return <h1>Ooops... Something went wrong</h1>;
 
-  if (!data.length) return <h1>There is no data...</h1>;
+  if (!data?.length) return <h1>There is no data...</h1>;
 
   return (
     <section className="flex flex-col items-center">
       <div className="sm:flex sm:flex-col lg:grid lg:grid-cols-3 sm:gap-4 lg:gap-5 sm:p-0 lg:p-5 sm:mt-5 lg:mt-0 sm:w-full w-fit h-fit overflow-auto">
-        {data.map((recipe) => (
+        {data?.map((recipe) => (
           <Link
             key={recipe.id}
             to={`/recipe/${recipe.id}`}

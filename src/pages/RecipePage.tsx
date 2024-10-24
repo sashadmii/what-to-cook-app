@@ -1,3 +1,3 @@
 export function RecipePage() {
-    return <div>Recipe</div>;
+  return <div>Recipe</div>;
 }
