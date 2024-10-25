@@ -1,7 +1,7 @@
 import { useDispatch } from 'react-redux';
 
-import { changeList } from '../../store/list/listSlice';
-import { cuisines } from '../../store/list/constants';
+import { cuisines } from '../../store/list/constants.ts';
+import { changeList } from '../../store/list/listSlice.tsx';
 
 function Cuisines() {
   const dispatch = useDispatch();
@@ -22,9 +22,11 @@ function Cuisines() {
         {cuisines.map((cuisine) => (
           <li
             key={cuisine}
-            className="sm:inline-block lg:block sm:w-fit sm:bg-plaster sm:mr-2 mb-2 lg:mr-0 sm:p-2 lg:p-0 sm:rounded-xl">
+            className="sm:inline-block lg:block sm:w-fit sm:bg-plaster sm:mr-2 mb-2 lg:mr-0 
+            sm:p-2 lg:p-0 sm:rounded-xl">
             <button
-              className="sm:text-sm lg:text-lg sm:pr-2 sm:pl-2 lg:p-0 text-left hover:text-caramel cursor-pointer"
+              className="sm:text-sm lg:text-lg sm:pr-2 sm:pl-2 lg:p-0 
+              text-left hover:text-caramel cursor-pointer"
               onClick={() => fetchCuisine(cuisine)}>
               {cuisine}
             </button>

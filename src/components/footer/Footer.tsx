@@ -1,11 +1,14 @@
-import { socialLinks } from '../../constants';
+import { socialLinks } from '../../constants.ts';
 import { ReactComponent as MailLogo } from '../../icons/mail.svg';
 
 function Footer() {
   const Mailto = ({ email }: any) => {
     return (
       <a href={`mailto:${email}`}>
-        <MailLogo className="w-6 hover:text-caramel hover:scale-125 transition ease-in-out duration-500 cursor-pointer" />
+        <MailLogo
+          className="w-6 hover:text-caramel hover:scale-125 transition ease-in-out 
+        duration-500 cursor-pointer"
+        />
       </a>
     );
   };

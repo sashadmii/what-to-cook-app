@@ -1,8 +1,8 @@
 import { Outlet } from 'react-router-dom';
 
-import SearchBar from '../components/searchBar';
-import Cuisines from '../components/cuisines';
-import Footer from '../components/footer';
+import Cuisines from '../components/cuisines/Cuisines.tsx';
+import Footer from '../components/footer/Footer.tsx';
+import SearchBar from '../components/searchBar/SearchBar.tsx';
 
 export function HomePage() {
   return (

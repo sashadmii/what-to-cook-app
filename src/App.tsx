@@ -1,8 +1,8 @@
+import { Provider } from 'react-redux';
 import { RouterProvider } from 'react-router-dom';
 
-import { Provider } from 'react-redux';
-import store from './store/store';
-import router from './routes';
+import router from './routes/index.ts';
+import store from './store/store.tsx';
 
 export function App() {
   return (

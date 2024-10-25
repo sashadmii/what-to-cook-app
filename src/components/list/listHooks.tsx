@@ -1,14 +1,12 @@
-import { useAppSelector, useAppDispatch } from '../../store/hooks';
-import { useState, useEffect } from 'react';
-
-import { changeList } from '../../store/list/listSlice';
+import { useEffect, useState } from 'react';
 
 import {
   useGetRandomRecipesQuery,
   useGetRecipesByCuisineQuery,
   useSearchRecipesQuery,
-} from '../../api/api';
-
+} from '../../api/api.tsx';
+import { useAppDispatch, useAppSelector } from '../../store/hooks.tsx';
+import { changeList } from '../../store/list/listSlice.tsx';
 import type { Recipe } from '../../types';
 
 // TODO: rewrite this hook without useEffects
@@ -56,7 +54,7 @@ function useListQueries() {
     if (listByCuisine) {
       setByCuisineList((byCuisineList = []) => [
         ...byCuisineList,
-        ...listByCuisine?.results,
+        ...listByCuisine.results,
       ]);
     }
   }, [listByCuisine]);
@@ -85,7 +83,7 @@ function useListQueries() {
     if (listBySearch) {
       setBySearchList((bySearchList = []) => [
         ...bySearchList,
-        ...listBySearch?.results,
+        ...listBySearch.results,
       ]);
     }
   }, [listBySearch]);

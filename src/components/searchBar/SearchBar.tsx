@@ -1,10 +1,9 @@
 import { useState } from 'react';
 
-import { useAppSelector, useAppDispatch } from '../../store/hooks';
-import { changeList } from '../../store/list/listSlice';
-
 import { ReactComponent as Logo } from '../../icons/logo.svg';
 import { ReactComponent as Glass } from '../../icons/magnGlass.svg';
+import { useAppDispatch, useAppSelector } from '../../store/hooks.tsx';
+import { changeList } from '../../store/list/listSlice.tsx';
 
 function SearchBar() {
   const [search, setSearch] = useState('');

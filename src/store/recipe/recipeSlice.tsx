@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 const recipeSlice = createSlice({
   name: 'recipe',
@@ -7,7 +7,7 @@ const recipeSlice = createSlice({
     id: '',
   },
   reducers: {
-    fetchRecipe: (state, action) => {
+    fetchRecipe: (state, action: PayloadAction<object>) => {
       return {
         ...state,
         ...action.payload,
