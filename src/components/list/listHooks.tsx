@@ -1,3 +1,5 @@
+import { SerializedError } from '@reduxjs/toolkit';
+import { FetchBaseQueryError } from '@reduxjs/toolkit/query';
 import { useEffect, useState } from 'react';
 
 import {
@@ -5,12 +7,19 @@ import {
   useGetRecipesByCuisineQuery,
   useSearchRecipesQuery,
 } from '../../api/api.tsx';
-import { useAppDispatch, useAppSelector } from '../../store/hooks.tsx';
-import { changeList } from '../../store/list/listSlice.tsx';
-import type { Recipe } from '../../types';
+import type { Recipe } from '../../api/apiTypes';
+import { useAppDispatch, useAppSelector } from '../../store/hooks';
+import { changeList } from '../../store/list/listSlice';
+
+type fetchedList = {
+  data: Recipe[] | undefined;
+  error: Error | FetchBaseQueryError | SerializedError | undefined;
+  isLoading: boolean;
+  refetch: () => void;
+};
 
 // TODO: rewrite this hook without useEffects
-function useListQueries() {
+function useListQueries(): fetchedList {
   const { cuisine, searchParam, offset } = useAppSelector(
     (state) => state.list
   );
@@ -29,6 +38,11 @@ function useListQueries() {
   } = useGetRandomRecipesQuery();
 
   const randomListData = randomList?.recipes;
+
+  // console.info('data>>>', randomList);
+  // console.info('error>>>', randomListError);
+  // console.info('isLoading>>>', randomListIsLoading);
+  // console.info('refetch>>>', refetch);
 
   //loading the recipes according to the cuisine choice
   const {

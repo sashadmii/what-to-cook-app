@@ -1,10 +1,10 @@
 import { Provider } from 'react-redux';
 import { RouterProvider } from 'react-router-dom';
 
-import router from './routes/index.ts';
-import store from './store/store.tsx';
+import router from './routes/index';
+import store from './store/store';
 
-export function App() {
+export function App(): JSX.Element {
   return (
     <Provider store={store}>
       <RouterProvider router={router} />

@@ -1,13 +1,17 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
+import { Recipe } from '../../api/apiTypes';
+
+const initialState: Recipe = {
+  ingredient: '',
+  id: 0,
+};
+
 const recipeSlice = createSlice({
   name: 'recipe',
-  initialState: {
-    ingredient: '',
-    id: '',
-  },
+  initialState,
   reducers: {
-    fetchRecipe: (state, action: PayloadAction<object>) => {
+    fetchRecipe: (state, action: PayloadAction<Recipe>) => {
       return {
         ...state,
         ...action.payload,

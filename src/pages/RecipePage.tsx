@@ -1,3 +1,3 @@
-export function RecipePage() {
+export function RecipePage(): JSX.Element {
   return <div>Recipe</div>;
 }

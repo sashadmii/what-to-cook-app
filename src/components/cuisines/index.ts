@@ -1,1 +1,1 @@
-export { default } from './Cuisines.tsx';
+export { default } from './Cuisines';

@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
-import type { ByCuisineSearch, BySearch, Recipes } from '../types';
+import type { ByCuisineSearch, BySearch, Recipe, Recipes } from './apiTypes';
 
 const key = process.env.REACT_APP_API_KEY;
 // const key = process.env.REACT_APP_API_ADD_KEY;
@@ -13,11 +13,11 @@ export const recipesApi = createApi({
       query: () =>
         `/recipes/random?apiKey=${key}&number=15&includeNutrition=false`,
     }),
-    getSimilarRecipes: build.query({
+    getSimilarRecipes: build.query<Recipes, string>({
       query: (ingredient) =>
         `/recipes/findByIngredients?ingredients=${ingredient}&apiKey=${key}`,
     }),
-    getRecipeById: build.query({
+    getRecipeById: build.query<Recipe, number>({
       query: (recipeId) =>
         `/recipes/${recipeId}/information?includeNutrition=false&apiKey=${key}`,
     }),

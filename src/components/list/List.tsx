@@ -1,25 +1,25 @@
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
-import { useAppDispatch, useAppSelector } from '../../store/hooks.tsx';
-import { changeList } from '../../store/list/listSlice.tsx';
-import { fetchRecipe } from '../../store/recipe/recipeSlice.tsx';
-import useListQueries from './listHooks.tsx';
+import { useAppDispatch, useAppSelector } from '../../store/hooks';
+import { changeList } from '../../store/list/listSlice';
+import { fetchRecipe } from '../../store/recipe/recipeSlice';
+import useListQueries from './listHooks';
 
-function List() {
-  const curCuisine = useAppSelector((state) => state.list?.cuisine);
-  const search = useAppSelector((state) => state.list.searchParam);
-  const offsetNum = useAppSelector((state) => state.list.offset);
-  const total = useAppSelector((state) => state.list.total);
+function List(): JSX.Element {
+  const { cuisine, searchParam, offset, total } = useAppSelector(
+    ({ list }) => list
+  );
+
   const dispatch = useAppDispatch();
 
   const { data, error, isLoading, refetch } = useListQueries();
 
   useEffect(() => {
-    if (!curCuisine && !search) {
+    if (!cuisine && !searchParam) {
       refetch();
     }
-  }, [refetch, curCuisine, search]);
+  }, [refetch, cuisine, searchParam]);
 
   const openRecipe = (recipeId: number) => {
     dispatch(fetchRecipe({ id: recipeId }));
@@ -27,9 +27,9 @@ function List() {
 
   const fetchMoreRecipes = () => {
     const fetchData = {
-      cuisine: search ? '' : curCuisine,
-      searchParam: search ? search : '',
-      offset: offsetNum + 15,
+      cuisine: searchParam ? null : cuisine,
+      searchParam: searchParam ? searchParam : null,
+      offset: offset + 15,
     };
 
     dispatch(changeList(fetchData));

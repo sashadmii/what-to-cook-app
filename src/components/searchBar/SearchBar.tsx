@@ -2,10 +2,10 @@ import { useState } from 'react';
 
 import { ReactComponent as Logo } from '../../icons/logo.svg';
 import { ReactComponent as Glass } from '../../icons/magnGlass.svg';
-import { useAppDispatch, useAppSelector } from '../../store/hooks.tsx';
-import { changeList } from '../../store/list/listSlice.tsx';
+import { useAppDispatch, useAppSelector } from '../../store/hooks';
+import { changeList } from '../../store/list/listSlice';
 
-function SearchBar() {
+function SearchBar(): JSX.Element {
   const [search, setSearch] = useState('');
   const dispatch = useAppDispatch();
   const offsetNum = useAppSelector((state) => state.list.offset);

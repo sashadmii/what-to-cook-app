@@ -1,10 +1,10 @@
 import { Outlet } from 'react-router-dom';
 
-import Cuisines from '../components/cuisines/Cuisines.tsx';
-import Footer from '../components/footer/Footer.tsx';
-import SearchBar from '../components/searchBar/SearchBar.tsx';
+import Cuisines from '../components/cuisines/Cuisines';
+import Footer from '../components/footer/Footer';
+import SearchBar from '../components/searchBar/SearchBar';
 
-export function HomePage() {
+export function HomePage(): JSX.Element {
   return (
     <div>
       <SearchBar />

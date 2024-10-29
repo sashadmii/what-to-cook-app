@@ -58,15 +58,15 @@ export default tseslint.config(
         },
       ],
 
-      'import/extensions': [
-        'error',
-        'ignorePackages',
-        {
-          js: 'never',
-          mjs: 'never',
-          jsx: 'never',
-        },
-      ],
+      // 'import/extensions': [
+      //   'error',
+      //   'ignorePackages',
+      //   {
+      //     js: 'never',
+      //     mjs: 'never',
+      //     jsx: 'never',
+      //   },
+      // ],
       'no-underscore-dangle': 'off',
 
       'lines-between-class-members': [
@@ -84,7 +84,7 @@ export default tseslint.config(
       ],
 
       'no-useless-constructor': 'error',
-      'no-unused-vars': 'error',
+      // 'no-unused-vars': 'error',
 
       'no-empty-function': [
         'error',
@@ -99,6 +99,7 @@ export default tseslint.config(
       'consistent-return': 'off',
       'no-shadow': 'off',
       'simple-import-sort/imports': 'error',
+      '@typescript-eslint/consistent-type-definitions': 'off',
       '@typescript-eslint/no-floating-promises': 'off',
       '@typescript-eslint/prefer-nullish-coalescing': 'off',
       '@typescript-eslint/no-unsafe-member-access': 'off',

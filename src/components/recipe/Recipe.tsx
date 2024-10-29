@@ -1,4 +1,4 @@
-function Recipe() {
+function Recipe(): JSX.Element {
   return <section>Recipe</section>;
 }
 
