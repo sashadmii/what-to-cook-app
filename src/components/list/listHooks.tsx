@@ -20,10 +20,7 @@ type fetchedList = {
 
 // TODO: rewrite this hook without useEffects
 function useListQueries(): fetchedList {
-  const { cuisine, searchParam, offset } = useAppSelector(
-    (state) => state.list
-  );
-
+  const { cuisine, searchParam, offset } = useAppSelector(({ list }) => list);
   const dispatch = useAppDispatch();
 
   const [byCuisineList, setByCuisineList] = useState<Recipe[]>();
