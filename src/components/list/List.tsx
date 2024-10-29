@@ -1,17 +1,17 @@
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
 
-import { changeList } from '../../store/list/listSlice';
-import useListQueries from './listHooks';
-import { fetchRecipe } from '../../store/recipe/recipeSlice';
+import { useAppDispatch, useAppSelector } from '../../store/hooks.tsx';
+import { changeList } from '../../store/list/listSlice.tsx';
+import { fetchRecipe } from '../../store/recipe/recipeSlice.tsx';
+import useListQueries from './listHooks.tsx';
 
 function List() {
-  const curCuisine = useSelector((state) => state.list?.cuisine);
-  const search = useSelector((state) => state.list.searchParam);
-  const offsetNum = useSelector((state) => state.list.offset);
-  const total = useSelector((state) => state.list.total);
-  const dispatch = useDispatch();
+  const curCuisine = useAppSelector((state) => state.list?.cuisine);
+  const search = useAppSelector((state) => state.list.searchParam);
+  const offsetNum = useAppSelector((state) => state.list.offset);
+  const total = useAppSelector((state) => state.list.total);
+  const dispatch = useAppDispatch();
 
   const { data, error, isLoading, refetch } = useListQueries();
 
@@ -21,12 +21,12 @@ function List() {
     }
   }, [refetch, curCuisine, search]);
 
-  const openRecipe = (recipeId) => {
+  const openRecipe = (recipeId: number) => {
     dispatch(fetchRecipe({ id: recipeId }));
   };
 
   const fetchMoreRecipes = () => {
-    let fetchData = {
+    const fetchData = {
       cuisine: search ? '' : curCuisine,
       searchParam: search ? search : '',
       offset: offsetNum + 15,
@@ -39,16 +39,19 @@ function List() {
 
   if (error) return <h1>Ooops... Something went wrong</h1>;
 
-  if (!data.length) return <h1>There is no data...</h1>;
+  if (!data?.length) return <h1>There is no data...</h1>;
 
   return (
     <section className="flex flex-col items-center">
-      <div className="sm:flex sm:flex-col lg:grid lg:grid-cols-3 sm:gap-4 lg:gap-5 sm:p-0 lg:p-5 sm:mt-5 lg:mt-0 sm:w-full w-fit h-fit overflow-auto">
-        {data.map((recipe) => (
+      <div
+        className="sm:flex sm:flex-col lg:grid lg:grid-cols-3 sm:gap-4 lg:gap-5 
+      sm:p-0 lg:p-5 sm:mt-5 lg:mt-0 sm:w-full w-fit h-fit overflow-auto">
+        {data?.map((recipe) => (
           <Link
             key={recipe.id}
             to={`/recipe/${recipe.id}`}
-            className="flex flex-col items-center h-auto bg-plaster sm:p-5 lg:p-7 rounded-3xl lg:hover:scale-105 transition ease-in-out duration-500 cursor-pointer"
+            className="flex flex-col items-center h-auto bg-plaster sm:p-5 lg:p-7 rounded-3xl 
+            lg:hover:scale-105 transition ease-in-out duration-500 cursor-pointer"
             onClick={() => openRecipe(recipe.id)}>
             <img
               className="sm:w-full lg:w-fit h-auto rounded-lg"
@@ -64,7 +67,9 @@ function List() {
       <button
         onClick={fetchMoreRecipes}
         hidden={data.length === total ? true : false}
-        className="bg-plaster pt-3 pb-3 pl-5 pr-5 rounded-full w-40 mt-5 hover:scale-110 hover:bg-cocoa hover:text-plaster transition ease-in-out duration-500 cursor-pointer">
+        className="bg-plaster pt-3 pb-3 pl-5 pr-5 rounded-full w-40 mt-5 
+        hover:scale-110 hover:bg-cocoa hover:text-plaster transition ease-in-out 
+        duration-500 cursor-pointer">
         Load More
       </button>
     </section>
