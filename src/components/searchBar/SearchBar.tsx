@@ -6,15 +6,15 @@ import { useAppDispatch, useAppSelector } from '../../store/hooks';
 import { changeList } from '../../store/list/listSlice';
 
 function SearchBar(): JSX.Element {
-  const [search, setSearch] = useState('');
+  const [search, setSearch] = useState<string>('');
   const dispatch = useAppDispatch();
-  const offsetNum = useAppSelector((state) => state.list.offset);
+  const { offset } = useAppSelector(({ list }) => list);
 
-  const searchRecipes = () => {
+  const searchRecipes = (): void => {
     dispatch(
       changeList({
         searchParam: search,
-        offset: offsetNum + 15,
+        offset: offset + 15,
       })
     );
     setSearch('');

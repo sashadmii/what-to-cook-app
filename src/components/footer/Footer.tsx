@@ -24,8 +24,8 @@ function Footer(): JSX.Element {
           ))}
           <a href="mailto:alexandra.rychka@gmail.com">
             <MailLogo
-              className="w-6 hover:text-caramel hover:scale-125 transition ease-in-out 
-        duration-500 cursor-pointer"
+              className="w-6 hover:text-caramel hover:scale-125 transition ease-in-out
+             duration-500 cursor-pointer"
             />
           </a>
         </div>

@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 import { CuisinesList } from '../../components/cuisines/cuisinesConstants';
 
-type ListState = {
+export type ListState = {
   cuisine?: CuisinesList | null;
   searchParam?: string | null;
   offset: number;

@@ -36,11 +36,6 @@ function useListQueries(): fetchedList {
 
   const randomListData = randomList?.recipes;
 
-  // console.info('data>>>', randomList);
-  // console.info('error>>>', randomListError);
-  // console.info('isLoading>>>', randomListIsLoading);
-  // console.info('refetch>>>', refetch);
-
   //loading the recipes according to the cuisine choice
   const {
     data: listByCuisine,

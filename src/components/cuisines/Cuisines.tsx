@@ -1,12 +1,13 @@
 import { useAppDispatch } from '../../store/hooks';
 import { changeList } from '../../store/list/listSlice';
+import { ListState } from '../../store/list/listSlice';
 import { CUISINES_MAP, CuisinesList } from './cuisinesConstants';
 
 function Cuisines(): JSX.Element {
   const dispatch = useAppDispatch();
 
   const fetchCuisine = (cuisine: CuisinesList): void => {
-    const updatedCuisines = {
+    const updatedCuisines: ListState = {
       cuisine: cuisine,
       searchParam: '',
       offset: 0,

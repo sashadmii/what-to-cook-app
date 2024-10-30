@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
-import { changeList } from '../../store/list/listSlice';
+import { changeList, ListState } from '../../store/list/listSlice';
 import { fetchRecipe } from '../../store/recipe/recipeSlice';
 import useListQueries from './listHooks';
 
@@ -10,7 +10,6 @@ function List(): JSX.Element {
   const { cuisine, searchParam, offset, total } = useAppSelector(
     ({ list }) => list
   );
-
   const dispatch = useAppDispatch();
 
   const { data, error, isLoading, refetch } = useListQueries();
@@ -21,12 +20,12 @@ function List(): JSX.Element {
     }
   }, [refetch, cuisine, searchParam]);
 
-  const openRecipe = (recipeId: number) => {
+  const openRecipe = (recipeId: number): void => {
     dispatch(fetchRecipe({ id: recipeId }));
   };
 
-  const fetchMoreRecipes = () => {
-    const fetchData = {
+  const fetchMoreRecipes = (): void => {
+    const fetchData: ListState = {
       cuisine: searchParam ? null : cuisine,
       searchParam: searchParam ? searchParam : null,
       offset: offset + 15,
