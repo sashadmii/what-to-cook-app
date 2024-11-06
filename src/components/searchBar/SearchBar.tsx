@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { ChangeEvent, KeyboardEvent, useState } from 'react';
 
 import { ReactComponent as Logo } from '../../icons/logo.svg';
 import { ReactComponent as Glass } from '../../icons/magnGlass.svg';
@@ -31,12 +31,14 @@ function SearchBar(): JSX.Element {
           className="border border-cocoa rounded-full sm:w-full lg:w-96 p-1.5 pl-3 focus: outline-none"
           name="search"
           type="text"
-          onKeyDown={(e) => {
+          onKeyDown={(e: KeyboardEvent<HTMLInputElement>): void => {
             if (e.key === 'Enter') searchRecipes();
           }}
           placeholder="Search for a recipe"
           value={search}
-          onChange={(e) => setSearch(e.target.value)}
+          onChange={(e: ChangeEvent<HTMLInputElement>): void =>
+            setSearch(e.target.value)
+          }
         />
         <button className="button" id="buttonSearch">
           <Glass

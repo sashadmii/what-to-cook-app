@@ -1,4 +1,5 @@
 import { socialLinks } from '../../constants';
+import { SocialLink } from '../../constants';
 import { ReactComponent as MailLogo } from '../../icons/mail.svg';
 
 function Footer(): JSX.Element {
@@ -13,15 +14,17 @@ function Footer(): JSX.Element {
       <div className="sm:text-center lg:text-end lg:w-1/4 ">
         <h3 className="font-serifFont text-3xl mb-2">Contact Me:</h3>
         <div className="flex gap-5 sm:justify-center lg:justify-end">
-          {socialLinks.map((link) => (
-            <a
-              href={link.link}
-              target="_blank"
-              rel="noreferrer"
-              key={link.name}>
-              {link.icon}
-            </a>
-          ))}
+          {socialLinks.map(
+            (link: SocialLink): JSX.Element => (
+              <a
+                href={link.link}
+                target="_blank"
+                rel="noreferrer"
+                key={link.name}>
+                {link.icon}
+              </a>
+            )
+          )}
           <a href="mailto:alexandra.rychka@gmail.com">
             <MailLogo
               className="w-6 hover:text-caramel hover:scale-125 transition ease-in-out

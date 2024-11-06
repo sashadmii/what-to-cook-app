@@ -1,3 +1,8 @@
+export type CuisineType = {
+    key: string;
+    value: CuisinesList;
+}
+
 export enum CuisinesList {
     African = 'African',
     Asian = 'Asian',

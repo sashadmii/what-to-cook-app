@@ -37,6 +37,7 @@ function useListQueries(): fetchedList {
   const randomListData = randomList?.recipes;
 
   //loading the recipes according to the cuisine choice
+
   const {
     data: listByCuisine,
     error: errorByCuisine,
@@ -49,7 +50,7 @@ function useListQueries(): fetchedList {
       dispatch(
         changeList({
           offset: 0,
-          random: false,
+          // random: false,
           total: listByCuisine?.totalResults,
         })
       );
@@ -78,7 +79,7 @@ function useListQueries(): fetchedList {
       dispatch(
         changeList({
           offset: 0,
-          random: false,
+          // random: false,
           total: listBySearch?.totalResults,
         })
       );

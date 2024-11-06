@@ -1,6 +1,6 @@
 import { CuisinesList } from '../components/cuisines/cuisinesConstants';
 
-type Recipe = {
+export type Recipe = {
   id: number;
   image?: string;
   title?: string;
@@ -8,20 +8,30 @@ type Recipe = {
   ingredient?: string;
 };
 
-type Recipes = {
+export type Recipes = {
   recipes: Recipe[];
   totalResults: number;
   results: [];
 };
 
-type ByCuisineSearch = {
+export type fetchDataType = 'random' | 'complexSearch';
+
+export type ParamsType = {
+  type?: fetchDataType;
+  cuisine?: CuisinesList | null;
+  searchParam?: string | null;
+  offset: number;
+  number?: number;
+  apiKey?: string;
+};
+
+//this should be deleted later
+export type ByCuisineSearch = {
   cuisine: CuisinesList | null | undefined;
   offset: number;
 };
 
-type BySearch = {
+export type BySearch = {
   searchParam: string | null | undefined;
   offset: number;
 };
-
-export type { Recipe, Recipes, ByCuisineSearch, BySearch };

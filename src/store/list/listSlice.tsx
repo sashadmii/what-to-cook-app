@@ -8,7 +8,6 @@ export type ListState = {
   searchParam?: string | null;
   offset: number;
   total?: number;
-  random?: boolean;
 };
 
 const initialState: ListState = {
