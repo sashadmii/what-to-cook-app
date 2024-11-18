@@ -1,9 +1,11 @@
 import type { PayloadAction } from '@reduxjs/toolkit';
 import { createSlice } from '@reduxjs/toolkit';
 
+import { Recipe } from '../../api/apiTypes';
 import { CuisinesList } from '../../components/cuisines/cuisinesConstants';
 
 export type ListState = {
+  recipes?: Recipe[];
   cuisine?: CuisinesList | null;
   searchParam?: string | null;
   offset: number;
@@ -11,6 +13,7 @@ export type ListState = {
 };
 
 const initialState: ListState = {
+  recipes: [],
   cuisine: null,
   searchParam: '',
   offset: 0,
@@ -27,8 +30,20 @@ const listSlice = createSlice({
         ...action.payload,
       };
     },
+    setRecipes: (state, action) => {
+      return {
+        ...state,
+        ...action.payload,
+      };
+    },
+    loadMoreRecipes: (state, action) => {
+      return {
+        ...state,
+        ...action.payload,
+      };
+    },
   },
 });
 
-export const { changeList } = listSlice.actions;
+export const { changeList, setRecipes, loadMoreRecipes } = listSlice.actions;
 export default listSlice.reducer;

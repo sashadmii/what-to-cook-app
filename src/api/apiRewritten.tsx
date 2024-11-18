@@ -3,8 +3,8 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import type { ParamsType, Recipe, Recipes } from './apiTypes';
 import { createURLParams } from './utils';
 
-// const key = process.env.REACT_APP_API_KEY;
-const key = process.env.REACT_APP_API_ADD_KEY;
+const key = process.env.REACT_APP_API_KEY;
+// const key = process.env.REACT_APP_API_ADD_KEY;
 // const key = process.env.REACT_APP_API_ADD_KEY2
 
 export const recipesApi = createApi({
