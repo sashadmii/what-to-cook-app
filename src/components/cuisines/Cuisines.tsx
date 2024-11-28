@@ -8,6 +8,7 @@ function Cuisines(): JSX.Element {
 
   const fetchCuisine = (cuisine: CuisinesList): void => {
     const updatedCuisines: ListState = {
+      recipes: [],
       cuisine: cuisine,
       searchParam: '',
       offset: 0,

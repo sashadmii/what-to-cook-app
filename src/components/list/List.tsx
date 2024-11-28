@@ -21,7 +21,6 @@ function List(): JSX.Element {
   const { data, isLoading, error } = useGetRecipesQuery({
     type,
     cuisine,
-    searchParam,
     offset,
   });
 
@@ -38,6 +37,7 @@ function List(): JSX.Element {
 
   const fetchMoreRecipes = (): void => {
     const fetchData: ListState = {
+      recipes: [],
       cuisine,
       searchParam,
       offset: offset + 15,

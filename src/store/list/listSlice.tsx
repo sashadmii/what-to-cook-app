@@ -5,7 +5,7 @@ import { Recipe } from '../../api/apiTypes';
 import { CuisinesList } from '../../components/cuisines/cuisinesConstants';
 
 export type ListState = {
-  recipes?: Recipe[];
+  recipes: Recipe[];
   cuisine?: CuisinesList | null;
   searchParam?: string | null;
   offset: number;
@@ -28,18 +28,21 @@ const listSlice = createSlice({
       return {
         ...state,
         ...action.payload,
+        recipes: [],
       };
     },
     setRecipes: (state, action) => {
       return {
         ...state,
         ...action.payload,
+        recipes: [...state.recipes, ...action.payload.recipes],
       };
     },
     loadMoreRecipes: (state, action) => {
       return {
         ...state,
         ...action.payload,
+        recipes: [...state.recipes, ...action.payload.recipes],
       };
     },
   },
