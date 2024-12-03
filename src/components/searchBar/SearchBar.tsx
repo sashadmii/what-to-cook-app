@@ -13,6 +13,7 @@ function SearchBar(): JSX.Element {
   const searchRecipes = (): void => {
     dispatch(
       changeList({
+        recipes: [],
         searchParam: search,
         offset: offset + 15,
       })

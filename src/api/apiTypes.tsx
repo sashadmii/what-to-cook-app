@@ -1,7 +1,7 @@
 import { CuisinesList } from '../components/cuisines/cuisinesConstants';
 
-export type Recipe = {
-  id: number;
+export type RecipeCard = {
+  id?: number;
   image?: string;
   title?: string;
   instructions?: string;
@@ -9,7 +9,7 @@ export type Recipe = {
 };
 
 export type Recipes = {
-  recipes: Recipe[];
+  recipes: RecipeCard[];
   totalResults: number;
   results: [];
 };
@@ -25,13 +25,20 @@ export type ParamsType = {
   apiKey?: string;
 };
 
-//this should be deleted later
-export type ByCuisineSearch = {
-  cuisine: CuisinesList | null | undefined;
-  offset: number;
+export type Ingredient = {
+  id: number;
+  nameClean: string;
 };
 
-export type BySearch = {
-  searchParam: string | null | undefined;
-  offset: number;
+export type RecipeType = {
+  id: number;
+  image: string;
+  extendedIngredients: Ingredient[];
+  title: string;
+  instructions: string;
+};
+
+export type SimilarRecipeType = {
+  id: number;
+  title: string;
 };

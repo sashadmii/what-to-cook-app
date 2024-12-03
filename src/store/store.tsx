@@ -1,7 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit';
 
-// import { recipesApi } from '../api/api';
-import { recipesApi } from '../api/apiRewritten';
+import { recipesApi } from '../api/api';
 import listSliceReducer from './list/listSlice';
 import recipeSliceReducer from './recipe/recipeSlice';
 
