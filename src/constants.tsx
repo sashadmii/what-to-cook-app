@@ -1,7 +1,13 @@
 import { ReactComponent as InstagramLogo } from './icons/instagram.svg';
 import { ReactComponent as LinkedInLogo } from './icons/linkedIn.svg';
 
-export const socialLinks = [
+export type SocialLink = {
+  name: string;
+  icon: JSX.Element;
+  link: string;
+};
+
+export const socialLinks: SocialLink[] = [
   {
     name: 'instagram',
     icon: <InstagramLogo />,

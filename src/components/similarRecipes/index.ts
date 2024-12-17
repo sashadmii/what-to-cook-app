@@ -1,1 +1,1 @@
-export { default } from './SimilarRecipes.tsx';
+export { default } from './SimilarRecipes';

@@ -1,20 +1,21 @@
-import { useState } from 'react';
+import { ChangeEvent, KeyboardEvent, useState } from 'react';
 
 import { ReactComponent as Logo } from '../../icons/logo.svg';
 import { ReactComponent as Glass } from '../../icons/magnGlass.svg';
-import { useAppDispatch, useAppSelector } from '../../store/hooks.tsx';
-import { changeList } from '../../store/list/listSlice.tsx';
+import { useAppDispatch, useAppSelector } from '../../store/hooks';
+import { changeList } from '../../store/list/listSlice';
 
-function SearchBar() {
-  const [search, setSearch] = useState('');
+function SearchBar(): JSX.Element {
+  const [search, setSearch] = useState<string>('');
   const dispatch = useAppDispatch();
-  const offsetNum = useAppSelector((state) => state.list.offset);
+  const { offset } = useAppSelector(({ list }) => list);
 
-  const searchRecipes = () => {
+  const searchRecipes = (): void => {
     dispatch(
       changeList({
+        recipes: [],
         searchParam: search,
-        offset: offsetNum + 15,
+        offset: offset + 15,
       })
     );
     setSearch('');
@@ -31,12 +32,14 @@ function SearchBar() {
           className="border border-cocoa rounded-full sm:w-full lg:w-96 p-1.5 pl-3 focus: outline-none"
           name="search"
           type="text"
-          onKeyDown={(e) => {
+          onKeyDown={(e: KeyboardEvent<HTMLInputElement>): void => {
             if (e.key === 'Enter') searchRecipes();
           }}
           placeholder="Search for a recipe"
           value={search}
-          onChange={(e) => setSearch(e.target.value)}
+          onChange={(e: ChangeEvent<HTMLInputElement>): void =>
+            setSearch(e.target.value)
+          }
         />
         <button className="button" id="buttonSearch">
           <Glass
