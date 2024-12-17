@@ -1,15 +1,16 @@
 import type { PayloadAction } from '@reduxjs/toolkit';
 import { createSlice } from '@reduxjs/toolkit';
 
-import { Recipe } from '../../api/apiTypes';
+import { RecipeCard } from '../../api/apiTypes';
 import { CuisinesList } from '../../components/cuisines/cuisinesConstants';
 
 export type ListState = {
-  recipes: Recipe[];
+  recipes: RecipeCard[];
   cuisine?: CuisinesList | null;
   searchParam?: string | null;
   offset: number;
   total?: number;
+  random: boolean;
 };
 
 const initialState: ListState = {
@@ -18,6 +19,7 @@ const initialState: ListState = {
   searchParam: '',
   offset: 0,
   total: 15,
+  random: true,
 };
 
 const listSlice = createSlice({

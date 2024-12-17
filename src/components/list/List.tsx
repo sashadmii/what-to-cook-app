@@ -12,11 +12,11 @@ import {
 import { fetchRecipe } from '../../store/recipe/recipeSlice';
 
 function List(): JSX.Element {
-  const { cuisine, searchParam, offset, total, recipes } = useAppSelector(
-    ({ list }) => list
-  );
+  const { cuisine, searchParam, offset, total, recipes, random } =
+    useAppSelector(({ list }) => list);
   const dispatch = useAppDispatch();
-  const type = cuisine || searchParam ? 'complexSearch' : 'random';
+
+  const type = random === true ? 'random' : 'complexSearch';
 
   const { data, isLoading, error } = useGetRecipesQuery({
     type,
@@ -41,6 +41,7 @@ function List(): JSX.Element {
       cuisine,
       searchParam,
       offset: offset + 15,
+      random: false,
     };
 
     dispatch(loadMoreRecipes(fetchData));
@@ -59,14 +60,14 @@ function List(): JSX.Element {
   return (
     <section className="flex flex-col items-center">
       <div
-        className="sm:flex sm:flex-col lg:grid lg:grid-cols-2 sm:gap-4 lg:gap-5 
-      sm:p-0 lg:p-5 sm:mt-5 lg:mt-0 sm:w-full w-fit h-fit overflow-auto">
+        className="sm:flex sm:flex-col lg:grid lg:grid-cols-3 sm:gap-4 lg:gap-5 
+        sm:p-0 sm:mt-5 lg:mt-0 sm:w-full w-fit h-fit overflow-auto">
         {recipes?.map(
           (recipe: RecipeCard): JSX.Element => (
             <Link
               key={recipe.id}
               to={`/recipe/${recipe.id}`}
-              className="flex flex-col items-center h-auto sm:p-5 lg:p-7 
+              className="flex flex-col items-center h-auto sm:p-5 lg:p-2 rounded-3xl 
             lg:hover:scale-105 transition ease-in-out duration-500 cursor-pointer"
               onClick={() => openRecipe(Number(recipe.id))}>
               <img
@@ -74,9 +75,11 @@ function List(): JSX.Element {
                 src={recipe.image}
                 alt={recipe.title}
               />
-              <h2 className="mt-3 lg:text-xl md:text-lg sm:text-sm text-center">
-                {recipe.title}
-              </h2>
+              <div className="flex-col ">
+                <h2 className="mt-3 lg:text-xl md:text-lg sm:text-sm text-center">
+                  {recipe.title}
+                </h2>
+              </div>
             </Link>
           )
         )}

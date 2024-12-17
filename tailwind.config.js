@@ -3,11 +3,12 @@ module.exports = {
   content: ['./src/**/*.{js,jsx,ts,tsx}'],
   theme: {
     fontFamily: {
-      sansFont: ['Poppins'],
+      sansFont: ['Nunito Sans'],
       serifFont: ['DM Serif Display'],
     },
     colors: {
       cocoa: '#7D5A50',
+      cocoaLight: '#a38981',
       caramel: '#B4846C',
       plaster: '#E5B299',
       sand: '#FFF2E1',

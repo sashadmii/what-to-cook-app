@@ -16,13 +16,14 @@ function SearchBar(): JSX.Element {
         recipes: [],
         searchParam: search,
         offset: offset + 15,
+        random: false,
       })
     );
     setSearch('');
   };
 
   return (
-    <header className="mt-6 m-5 flex sm:flex-col lg:flex-row lg:justify-between gap-3">
+    <header className="mr-5 ml-5 flex sm:flex-col lg:flex-row lg:justify-between gap-3">
       <div className="flex flex-row gap-2 items-end sm:mb-5 lg:mb-0">
         <Logo />
         <h3 className="font-serifFont text-3xl">WHAT TO COOK</h3>

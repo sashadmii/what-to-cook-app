@@ -6,6 +6,7 @@ export type RecipeCard = {
   title?: string;
   instructions?: string;
   ingredient?: string;
+  summary?: string;
 };
 
 export type Recipes = {
