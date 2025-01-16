@@ -1,3 +1,15 @@
-# What To Cook
+# What To Cook App
 
-What To Cook is an application which can be used as a cookbook. The goal of the application is to simplify the meal preparation process. The user will search the meals by the name, cuisine or category and the application will display the recipe based on the search.
+Welcome to the *What To Cook App* repository! This application serves as a digital cookbook, helping users easily find and prepare meals based on various criteria.
+
+## Features
+
+- **Recipe Search**: Find recipes by name, cuisine, or category.
+- **Step-by-Step Instructions**: Detailed cooking instructions for each recipe.
+- **Ingredient Lists**: View all required ingredients for each dish.
+
+## Technologies Used
+
+- **Frontend**: Built with *HTML*, *CSS*, and *JavaScript*.
+- **Backend**: Powered by *Node.js* 
+- **Database**: Uses *MongoDB* for storing recipe data.
