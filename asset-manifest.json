@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "/what-to-cook-app/static/css/main.49fd3245.css",
+    "main.js": "/what-to-cook-app/static/js/main.993662d4.js",
+    "static/media/heroBG.png": "/what-to-cook-app/static/media/heroBG.e07490bc1ac78a241ca8.png",
+    "static/media/logo.svg": "/what-to-cook-app/static/media/logo.dd2c4ad947279ef6b16baa60114bb7ba.svg",
+    "static/media/instagram.svg": "/what-to-cook-app/static/media/instagram.d4bd05764e37041d1542b89d5c584797.svg",
+    "static/media/linkedIn.svg": "/what-to-cook-app/static/media/linkedIn.f7c72ae453cb2fb7dc7fb077a5967899.svg",
+    "static/media/mail.svg": "/what-to-cook-app/static/media/mail.1c378cecf33459a398a4841ac9eadaaf.svg",
+    "index.html": "/what-to-cook-app/index.html",
+    "static/media/magnGlass.svg": "/what-to-cook-app/static/media/magnGlass.033dcadf998301e0b18e6f088a525b50.svg",
+    "main.49fd3245.css.map": "/what-to-cook-app/static/css/main.49fd3245.css.map",
+    "main.993662d4.js.map": "/what-to-cook-app/static/js/main.993662d4.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.49fd3245.css",
+    "static/js/main.993662d4.js"
+  ]
+}
