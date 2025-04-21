@@ -5,22 +5,27 @@ import { HomePage } from '../pages/HomePage';
 import { NotFoundPage } from '../pages/NotFoundPage';
 import { RecipePage } from '../pages/RecipePage';
 
-const router = createBrowserRouter([
+const router = createBrowserRouter(
+  [
+    {
+      path: '/',
+      element: <HomePage />,
+      errorElement: <NotFoundPage />,
+      children: [
+        {
+          path: '/',
+          element: <List />,
+        },
+      ],
+    },
+    {
+      path: 'recipe/:id',
+      element: <RecipePage />,
+    },
+  ],
   {
-    path: '/',
-    element: <HomePage />,
-    errorElement: <NotFoundPage />,
-    children: [
-      {
-        path: '/',
-        element: <List />,
-      },
-    ],
-  },
-  {
-    path: 'recipe/:id',
-    element: <RecipePage />,
-  },
-]);
+    basename: '/what-to-cook-app', // replace with your repo name
+  }
+);
 
 export default router;
