@@ -34,7 +34,9 @@ function Cuisines(): JSX.Element {
                   onClick={(): void => fetchCuisine(cuisine.value)}>
                   {' '}
                   <img
-                    src={`/images/${cuisine.value.toLowerCase()}.png`}
+                    src={`${
+                      process.env.PUBLIC_URL
+                    }/images/${cuisine.value.toLowerCase()}.png`}
                     alt={`${cuisine.value}`}
                   />
                   {cuisine.value}
